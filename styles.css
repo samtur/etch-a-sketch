@@ -1,0 +1,11 @@
+.canvasContainer {
+    display: grid;
+    grid-template-columns: auto;
+    height: 750px;
+    width: 750px;
+}
+
+.canvasContainer div {
+    border: solid 0.5px black;
+}
+
