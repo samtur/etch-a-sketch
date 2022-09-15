@@ -1,8 +1,9 @@
+// SELECTORS AND GLOBAL VARIABLES
 const canvasContainer = document.querySelector(".canvasContainer");
 const colorPicker = document.querySelector("#colorpicker");
-
 let num = 0;
 
+// CREATE GRID FUNCTION
 function createGrid(num) {
   for (let i = 1; i <= num * num; i++) {
     let div = document.createElement("div");
@@ -11,7 +12,7 @@ function createGrid(num) {
   }
   const gridSquare = document.querySelector(".grid");
 }
-
+// GRID SIZE FUNCTION
 function gridSize() {
   num = prompt("Enter a grid size");
   if (num > 150) {
@@ -21,9 +22,7 @@ function gridSize() {
   canvasContainer.style.gridTemplateColumns = `repeat(${num}, ${gridValue}px)`;
   return num;
 }
-
-// function color() {}
-
+// DRAW AND COLOR SELECTOR FUNCTION
 function draw() {
   let color = "#000000";
   colorPicker.addEventListener("input", (e) => {
@@ -38,22 +37,7 @@ function draw() {
     });
   });
 }
-
+// FUNCTION CALLS   
 gridSize();
 createGrid(num);
 draw();
-// function createCol(num) {
-//   for (let i = 0; i <= num; i++) {
-//     let div = document.createElement("div");
-//     div.classList.add("col");
-//     canvasContainer.appendChild(div);
-//   }
-// }
-
-// function createRow(num){
-//     for(let i= 0; i <=num; i++){
-
-//     }
-// }
-
-// createCol(num);
