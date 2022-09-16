@@ -1,27 +1,42 @@
 // SELECTORS AND GLOBAL VARIABLES
 const canvasContainer = document.querySelector(".canvasContainer");
 const colorPicker = document.querySelector("#colorpicker");
-let num = 0;
+const gridSlider = document.querySelector("#gridslider");
+let num = 16;
 
 // CREATE GRID FUNCTION
 function createGrid(num) {
+  while (canvasContainer.firstChild) {
+    canvasContainer.removeChild(canvasContainer.lastChild);
+  }
   for (let i = 1; i <= num * num; i++) {
     let div = document.createElement("div");
     div.classList.add("grid");
     canvasContainer.appendChild(div);
   }
   const gridSquare = document.querySelector(".grid");
+  draw();
 }
-// GRID SIZE FUNCTION
-function gridSize() {
-  num = prompt("Enter a grid size");
-  if (num > 150) {
-    num = prompt("Number is too high. Please enter a lower size.");
-  }
+function createDefaultGrid(num) {
   gridValue = 750 / num;
   canvasContainer.style.gridTemplateColumns = `repeat(${num}, ${gridValue}px)`;
-  return num;
+  for (let i = 1; i <= num * num; i++) {
+    let div = document.createElement("div");
+    div.classList.add("grid");
+    canvasContainer.appendChild(div);
+  }
+  const gridSquare = document.querySelector(".grid");
+  draw();
 }
+
+// GRID SIZE FUNCTION
+gridSlider.addEventListener("input", (e) => {
+  num = gridSlider.value;
+  gridValue = 750 / num;
+  canvasContainer.style.gridTemplateColumns = `repeat(${num}, ${gridValue}px)`;
+  createGrid(num);
+});
+
 // DRAW AND COLOR SELECTOR FUNCTION
 function draw() {
   let color = "#000000";
@@ -37,7 +52,5 @@ function draw() {
     });
   });
 }
-// FUNCTION CALLS   
-gridSize();
-createGrid(num);
-draw();
+// FUNCTION CALLS
+createDefaultGrid(num);
