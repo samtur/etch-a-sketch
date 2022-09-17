@@ -2,6 +2,7 @@
 const canvasContainer = document.querySelector(".canvasContainer");
 const colorPicker = document.querySelector("#colorpicker");
 const gridSlider = document.querySelector("#gridslider");
+const rainbowBtn = document.querySelector("#rainbow");
 let num = 16;
 
 // CREATE GRID FUNCTION
@@ -45,12 +46,31 @@ function draw() {
     console.log(color);
     return color;
   });
-  const gridSquare = document.querySelectorAll(".grid");
+  let gridSquare = document.querySelectorAll(".grid");
   gridSquare.forEach((square) => {
     square.addEventListener("mouseover", (event) => {
       event.target.style.backgroundColor = color;
     });
   });
 }
+
+// RAINBOW
+function rainbow() {
+  rainbowBtn.addEventListener("click", (e) => {
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    let gridSquare = document.querySelectorAll(".grid");
+    gridSquare.forEach((square) => {
+      square.addEventListener("mouseover", (event) => {
+        randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        event.target.style.backgroundColor = `#${randomColor}`;
+      });
+    });
+  });
+  colorPicker.addEventListener("click", (e) => {
+    draw();
+  });
+}
+
 // FUNCTION CALLS
 createDefaultGrid(num);
+rainbow();
