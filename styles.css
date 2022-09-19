@@ -1,11 +1,120 @@
+body {
+    font-family: 'Fredoka One', cursive;
+    color: #181818;
+    background-color: #f2eef5;
+}
+
+h1 {
+    margin: 20px 0px;
+    font-size: 32pt;
+}
+
+button {
+    font-family: 'Fredoka One', cursive;
+    font-size: 15px;
+    background-color: #4fc4cf;
+    border-radius: 5px;
+    padding: 5px 15px;
+    border: solid 0.3px #181818;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: #078080 0 0.5em 0.5em -0.4em;
+    transform: translateY(-0.25em);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.btnContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 27px;
+    margin-right: 30px;
+    margin-top: 99px;
+    color: #181818;
+    font-size: 1.5rem;
+}
+
 .canvasContainer {
     display: grid;
     grid-template-columns: auto;
     height: 750px;
     width: 750px;
+    border: solid 2px #181818;
+    border-radius: 2%;
+    overflow: hidden;
+    background-color: #fffffe;
 }
 
-.canvasContainer div {
-    border: solid 0.5px black;
+.titleCanvas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #fffffe;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border: solid 0.3px #181818;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #4fc4cf;
+    cursor: pointer;
+    border: solid 0.3px #181818;
+    box-shadow: #078080 0 0.5em 0.5em -0.4em;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4fc4cf;
+    cursor: pointer;
+    border: solid 0.3px #181818;
+    box-shadow: #078080 0 0.5em 0.5em -0.4em;
+  }
+
+  #colorpicker {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 75px;
+    height: 75px;
+    border: none;
+    align-self: center;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  #colorpicker::-webkit-color-swatch{
+    border-radius: 50px;
+    border: solid 0.3px #181818;
+  }
+  #colorpicker::-moz-color-swatch{
+    border-radius: 15px;
+    border: solid 0.3px #181818;
+  }

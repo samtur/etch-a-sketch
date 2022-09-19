@@ -101,6 +101,6 @@ eraserBtn.addEventListener("click", (e) => {
 clearBtn.addEventListener("click", (e) => {
   let grid = document.querySelectorAll(".grid");
   grid.forEach((square) => {
-    square.style.backgroundColor = "#ffffff";
+    square.style.backgroundColor = "#fffffe";
   });
 });
